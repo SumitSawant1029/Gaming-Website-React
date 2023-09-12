@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
+import { Link } from "react-router-dom";
+
 const Login = ({ switchToSignin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -18,9 +19,7 @@ const Login = ({ switchToSignin }) => {
   };
 
   return (
-
     <>
-    <Navbar/>
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -53,9 +52,9 @@ const Login = ({ switchToSignin }) => {
 
                   <p>
                     Don't Have an account?{' '}
-                    <a href="#" onClick={() => switchToSignin('Signin')}>
+                    <Link to="/Signup" >
                       Create New
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </form>
