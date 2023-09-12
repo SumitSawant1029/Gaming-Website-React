@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar() {
   return (
     <>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -13,7 +14,7 @@ function Navbar(props) {
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" >
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <Link class="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
@@ -34,7 +35,9 @@ function Navbar(props) {
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <button class="btn btn-outline-success" onClick={()=>props.switchToSignin('Login')} type="submit">Log In</button>
+        <Link to="/Login"> 
+        <button class="btn btn-outline-success"  type="submit">Log In</button>
+        </Link>
       </form>
     </div>
   </div>
