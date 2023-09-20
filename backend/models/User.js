@@ -22,5 +22,5 @@ const UserSchema = new Schema({
     },
   
 });
-
-module.exports=mongoose.model('user',UserSchema)
+const User = mongoose.model('logincrediantials',UserSchema);
+module.exports= User
