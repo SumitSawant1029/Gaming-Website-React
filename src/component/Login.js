@@ -1,70 +1,71 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Login = ({ switchToSignin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login = (props) => {
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleLogin = () => {
-    // Handle login logic here (e.g., send a request to your server)
-    console.log('Logging in with username:', username, 'and password:', password);
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (
-    <>
-    <div className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title">Login</h2>
-              <form>
-                <div className="form-group">
-                  <label htmlFor="username">Username:</label>
-                  <input
-                    type="text"
-                    id="username"
-                    className="form-control"
-                    value={username}
-                    onChange={handleUsernameChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="password">Password:</label>
-                  <input
-                    type="password"
-                    id="password"
-                    className="form-control"
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                </div>
-                <div className="text-center my-4">
-                <button type="button" class="btn btn-outline-primary">Login</button>
-
-                  <p>
-                    Don't Have an account?{' '}
-                    <Link to="/Signup" >
-                      Create New
-                    </Link>
-                  </p>
-                </div>
-              </form>
+    <div className='container my-5'>
+      <div className='d-flex justify-content-center'>
+        <form onSubmit={handleSubmit}>
+          <div className='mb-3'>
+            <label htmlFor='email' className='form-label'>
+              Email address
+            </label>
+            <input
+              type='email'
+              className='form-control'
+              value={credentials.email}
+              onChange={onChange}
+              id='email'
+              name='email'
+              aria-describedby='emailHelp'
+            />
+            <div id='emailHelp' className='form-text'>
+              We'll never share your email with anyone else.
             </div>
           </div>
-        </div>
+          <div className='mb-3'>
+            <label htmlFor='password' className='form-label'>
+              Password
+            </label>
+            <input
+              type='password'
+              className='form-control'
+              value={credentials.password}
+              onChange={onChange}
+              name='password'
+              id='password'
+            />
+          </div>
+
+          <button type='submit' className='btn btn-primary'>
+            Login
+          </button><br></br>
+          <Link to="/Signup">SignUp</Link>
+        </form>
       </div>
     </div>
-    
-    </>
   );
 };
 
