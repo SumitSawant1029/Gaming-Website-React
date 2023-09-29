@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +20,12 @@ const Login = (props) => {
     });
     const json = await response.json();
     console.log(json);
-    if (json.success===true) {
+    if (json.success === true) {
       // Redirect to the home page
       navigate('/');
+    }
+    else {
+      setShowAlert(true)
     }
   };
 
@@ -30,6 +34,12 @@ const Login = (props) => {
   };
 
   return (
+    <>
+      {showAlert && ( // Render the alert when showAlert is true
+        <div className='alert alert-primary' role='alert'>
+          Login failed. Please check your email and password.
+        </div>
+      )}
       <div className='container my-5'>
         <div className='d-flex justify-content-center'>
           <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
@@ -63,7 +73,7 @@ const Login = (props) => {
                 id='password'
               />
             </div>
-    
+
             <button type='submit' className='btn btn-primary'>
               Login
             </button>
@@ -72,8 +82,9 @@ const Login = (props) => {
           </form>
         </div>
       </div>
-    
-  
+    </>
+
+
   );
 };
 

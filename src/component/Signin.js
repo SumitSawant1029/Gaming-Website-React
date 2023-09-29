@@ -37,7 +37,7 @@ function Signin() {
     console.log(json);
     if (json.success===true) {
       // Redirect to the home page
-      navigate('/');
+      navigate('/', { state: { showSuccess: true } });
     }
     
   };
