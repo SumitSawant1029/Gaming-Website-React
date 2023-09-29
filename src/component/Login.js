@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: '', password: '' });
 
   const handleSubmit = async (e) => {
@@ -18,6 +19,10 @@ const Login = (props) => {
     });
     const json = await response.json();
     console.log(json);
+    if (json.success===true) {
+      // Redirect to the home page
+      navigate('/');
+    }
   };
 
   const onChange = (e) => {
@@ -25,47 +30,50 @@ const Login = (props) => {
   };
 
   return (
-    <div className='container my-5'>
-      <div className='d-flex justify-content-center'>
-        <form onSubmit={handleSubmit}>
-          <div className='mb-3'>
-            <label htmlFor='email' className='form-label'>
-              Email address
-            </label>
-            <input
-              type='email'
-              className='form-control'
-              value={credentials.email}
-              onChange={onChange}
-              id='email'
-              name='email'
-              aria-describedby='emailHelp'
-            />
-            <div id='emailHelp' className='form-text'>
-              We'll never share your email with anyone else.
+      <div className='container my-5'>
+        <div className='d-flex justify-content-center'>
+          <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+            <div className='mb-3'>
+              <label htmlFor='email' className='form-label'>
+                Email address
+              </label>
+              <input
+                type='email'
+                className='form-control'
+                value={credentials.email}
+                onChange={onChange}
+                id='email'
+                name='email'
+                aria-describedby='emailHelp'
+              />
+              <div id='emailHelp' className='form-text'>
+                We'll never share your email with anyone else.
+              </div>
             </div>
-          </div>
-          <div className='mb-3'>
-            <label htmlFor='password' className='form-label'>
-              Password
-            </label>
-            <input
-              type='password'
-              className='form-control'
-              value={credentials.password}
-              onChange={onChange}
-              name='password'
-              id='password'
-            />
-          </div>
-
-          <button type='submit' className='btn btn-primary'>
-            Login
-          </button><br></br>
-          <Link to="/Signup">SignUp</Link>
-        </form>
+            <div className='mb-3'>
+              <label htmlFor='password' className='form-label'>
+                Password
+              </label>
+              <input
+                type='password'
+                className='form-control'
+                value={credentials.password}
+                onChange={onChange}
+                name='password'
+                id='password'
+              />
+            </div>
+    
+            <button type='submit' className='btn btn-primary'>
+              Login
+            </button>
+            <br />
+            <Link to='/Signup'>SignUp</Link>
+          </form>
+        </div>
       </div>
-    </div>
+    
+  
   );
 };
 

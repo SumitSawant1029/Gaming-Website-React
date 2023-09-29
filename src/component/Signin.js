@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+
 
 function Signin() {
+  const navigate = useNavigate();
   const [credentials1, setcredentials1] = useState({
 
     firstname: "",
@@ -32,6 +35,11 @@ function Signin() {
     });
     const json = await response.json();
     console.log(json);
+    if (json.success===true) {
+      // Redirect to the home page
+      navigate('/');
+    }
+    
   };
 
   const onChange1 = (e) => {
@@ -40,9 +48,12 @@ function Signin() {
 
   return (
     <>
-      <div className='container'>
-        <h3 className='my-4'>Sign Up</h3>
-        <form action="">
+      <div className='container my-5'>
+        <div className='d-flex justify-content-center'>
+          <form onSubmit={Signuphandler} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+            
+          <h3 className='my-4'>Sign Up</h3>
+  
           <div className="input-group my-3">
             <span className="input-group-text">First and last name</span>
             <input name="firstname" type="text" onChange={onChange1} aria-label="First name" className="form-control" />
@@ -87,8 +98,10 @@ function Signin() {
           </div>
 
           <button type="submit" onClick={Signuphandler} className="btn btn-primary">Sign Up</button>
+          <Link to="/Login" type="submit" className="btn btn-primary mx-3">Back</Link>
 
         </form>
+      </div>
       </div>
     </>
 
