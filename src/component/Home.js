@@ -1,6 +1,6 @@
 // MyComponent.jsx
 import React, { useState, useEffect } from 'react';
-import './Home.css'; // Import the CSS file for styling
+import './CSS/Home.css'; // Import the CSS file for styling
 import Navbar from './Navbar';
 function Home() {
   const [myIndex, setMyIndex] = useState(0);

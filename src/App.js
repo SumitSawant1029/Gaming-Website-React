@@ -7,6 +7,7 @@ import Home from './component/Home';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
+import ShopByCategory from './component/ShopByCategory';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Navbar />} />
           <Route path="/home" element={<Home />} />
           <Route path="/Signup" element={<Signin />} />
+          <Route path="/ShopByCategory" element={<ShopByCategory />} />
           <Route path="/Login" element={<Login />} />
         </Routes>
       </Container>
