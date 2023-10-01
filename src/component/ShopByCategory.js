@@ -1,10 +1,9 @@
-import React from 'react';
+import React  from 'react';
 import Navbar from './Navbar';
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './CSS/ShopByCategory.css';
-import { height } from '@mui/system';
 import Footer from './Footer';
+import { Link } from "react-router-dom";
 
 const ShopByCategory = (props) => {
     const cardData = [
@@ -37,7 +36,7 @@ const ShopByCategory = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{card.title}</h5>
                     <p className="card-text">{card.text}</p>
-                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                    <Link to="#" className="btn btn-primary">Go somewhere</Link>
                 </div>
             </div>
         </div>

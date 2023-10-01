@@ -1,18 +1,18 @@
 import React , { useState } from 'react';
-import ReactDOM from 'react-dom';
 import { Link ,useLocation } from "react-router-dom";
 
 function Navbar(props) {
   const location = useLocation();
   const { state } = location;
-  const [isAlertVisible, setIsAlertVisible] = useState(state?.showSuccess || false);
+  const [isAlertVisible] = useState(state?.showSuccess || false);
 
-  return (
+  return ( 
+
     <>
 
       <nav className="navbar navbar-expand-lg bg-dark ">
         <div className="container-fluid">
-          <a className="navbar-brand text-white" >Gaming Galaxy</a>
+          <Link className="navbar-brand text-white" >Gaming Galaxy</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -25,14 +25,14 @@ function Navbar(props) {
                 <Link to="/ShopByCategory" className="nav-link text-white" >ShopByCategory</Link>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <Link className="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Offers
-                </a>
+                </Link>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" >Action</a></li>
-                  <li><a className="dropdown-item" >Another action</a></li>
+                  <li><Link className="dropdown-item" >Action</Link></li>
+                  <li><Link className="dropdown-item" >Another action</Link></li>
                   <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" >Something else here</a></li>
+                  <li><Link className="dropdown-item" >Something else here</Link></li>
                 </ul>
               </li>
 
