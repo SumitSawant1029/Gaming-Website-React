@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/GAMING-WEBSITE-REACT-1/static/css/main.d54a3d17.css",
-    "main.js": "/GAMING-WEBSITE-REACT-1/static/js/main.a83b8182.js",
-    "static/js/787.28cb0dcd.chunk.js": "/GAMING-WEBSITE-REACT-1/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/GAMING-WEBSITE-REACT-1/index.html",
-    "main.d54a3d17.css.map": "/GAMING-WEBSITE-REACT-1/static/css/main.d54a3d17.css.map",
-    "main.a83b8182.js.map": "/GAMING-WEBSITE-REACT-1/static/js/main.a83b8182.js.map",
-    "787.28cb0dcd.chunk.js.map": "/GAMING-WEBSITE-REACT-1/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Gaming-Website-React/static/css/main.d54a3d17.css",
+    "main.js": "/Gaming-Website-React/static/js/main.cf0f85a9.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Gaming-Website-React/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Gaming-Website-React/index.html",
+    "main.d54a3d17.css.map": "/Gaming-Website-React/static/css/main.d54a3d17.css.map",
+    "main.cf0f85a9.js.map": "/Gaming-Website-React/static/js/main.cf0f85a9.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Gaming-Website-React/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d54a3d17.css",
-    "static/js/main.a83b8182.js"
+    "static/js/main.cf0f85a9.js"
   ]
 }
