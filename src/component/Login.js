@@ -43,6 +43,8 @@ const Login = (props) => {
       <div className='container my-5'>
         <div className='d-flex justify-content-center'>
           <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+          <Link to='/'> &lt; &lt; Back</Link>
+
             <div className='mb-3'>
               <label htmlFor='email' className='form-label'>
                 Email address

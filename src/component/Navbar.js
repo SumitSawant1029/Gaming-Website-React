@@ -9,6 +9,11 @@ function Navbar(props) {
   return ( 
 
     <>
+    {isAlertVisible && (
+        <div className='alert alert-success my-0' role='alert'>
+          Sign up completed successfully!
+        </div>
+      )}
 
       <nav className="navbar navbar-expand-lg bg-dark ">
         <div className="container-fluid">
@@ -47,11 +52,7 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-      {isAlertVisible && (
-        <div className='alert alert-success' role='alert'>
-          Sign up completed successfully!
-        </div>
-      )}
+      
     </>
   );
 }
