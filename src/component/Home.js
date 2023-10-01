@@ -10,6 +10,7 @@ function Home() {
 
     <>
     <Navbar />
+    <div className='container my-3'>
     <Container>
       
       <Banner>
@@ -67,6 +68,7 @@ function Home() {
        
       </Main>
     </Container>
+    </div>
     <Footer/>
     </>
   )

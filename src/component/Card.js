@@ -1,23 +1,26 @@
 import React from 'react'
 import styled from "styled-components";
 import Rating from '@mui/material/Rating';
+import { useStateValue } from './StateProvider';
 
 
+function Card({id,image, price, rating, title}) {
+  
+ 
 
-function Card() {
     return (
         <Container>
-            <Image>
-                <img  alt="" />
+            <Image >
+                <img src={image} alt="" />
             </Image>
             <Description>
-                <h3></h3>
-                <Rating name="half-rating-read" precision={0.5} readOnly />
-                <p>hi</p>
-                <button >Add to Cart</button>
+                <h3  >{title}</h3>
+                <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
+                <p>₹{price}</p>
+                <button>Add to Cart</button>
             </Description>
-        
-        </Container>
+           
+        </Container> 
     )
 }
 
@@ -47,14 +50,15 @@ const Image = styled.div`
   }
 `;
 const Description = styled.div`
-  width: 90%;
+  width: 80%;
+  height:80%;
   margin: auto;
-  display: flex;
+
   flex-direction: column;
   justify-content: space-evenly;
   flex: 0.7;
 
-  h5 {
+  h3 {
     font-size: 16px;
     font-weight: 600;
   }
