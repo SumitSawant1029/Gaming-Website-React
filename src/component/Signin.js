@@ -30,27 +30,27 @@ function Signin() {
 
     
       if (isPasswordMatch && isMobileValid){
-        // const response = await fetch('http://localhost:5000/api/auth/createuser', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({
-        //     firstname: credentials1.firstname,
-        //     lastname: credentials1.lastname,
-        //     gender: credentials1.gender,
-        //     mob: credentials1.mob,
-        //     DOB: credentials1.DOB,
-        //     email: credentials1.email,
-        //     password: credentials1.password
-        //   }),
-        // });
-        // const json = await response.json();
-        // console.log(json);
-        // if (json.success===true) {
-        //   // Redirect to the home page
-        //   navigate('/login');
-        // }
+        const response = await fetch('http://localhost:5000/api/auth/createuser', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            firstname: credentials1.firstname,
+            lastname: credentials1.lastname,
+            gender: credentials1.gender,
+            mob: credentials1.mob,
+            DOB: credentials1.DOB,
+            email: credentials1.email,
+            password: credentials1.password
+          }),
+        });
+        const json = await response.json();
+        console.log(json);
+        if (json.success===true) {
+          // Redirect to the home page
+          navigate('/login');
+        }
       }
       else{
         if (!isPasswordMatch) {
