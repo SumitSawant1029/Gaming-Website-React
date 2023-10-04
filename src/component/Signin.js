@@ -6,6 +6,9 @@ function Signin() {
   const navigate = useNavigate();
   const [showpassAlert, setShowpassAlert] = useState(false);
   const [showmobalert, setshowmobalert] = useState(false);
+  const [ShowAgeAlert, setShowAgeAlert] = useState(false);
+  const [ShowEmailAlert, setShowEmailAlert] = useState(false);
+
   const [credentials1, setcredentials1] = useState({
 
     firstname: "",
@@ -18,6 +21,9 @@ function Signin() {
     cpassword:"",
   });
 
+  const onClick1 = (e) => {
+    if (e.target.name === "1"){setShowAgeAlert(false);}else if(e.target.name === "2"){setShowpassAlert(false);} else if(e.target.name==="3"){setshowmobalert(false);}else if(e.target.name==="0"){setShowEmailAlert(false);} 
+  }
 
   const Signuphandler = async (e) => {
     e.preventDefault();
@@ -26,10 +32,21 @@ function Signin() {
     const birthDate = new Date(credentials1.DOB);
     const currentDate = new Date();
     const age = currentDate.getFullYear() - birthDate.getFullYear();
-    console.log(age);
-
+    const isAgeValid = age >= 18;
     
-      if (isPasswordMatch && isMobileValid){
+    const isEmailValid = await fetch('http://localhost:5000/api/auth//isEmailTaken', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: credentials1.email,
+          }),
+        });
+        
+    
+        
+      if (isPasswordMatch && isMobileValid && isAgeValid && !isEmailValid.ok){
         const response = await fetch('http://localhost:5000/api/auth/createuser', {
           method: 'POST',
           headers: {
@@ -59,6 +76,12 @@ function Signin() {
         if (!isMobileValid) {
           setshowmobalert(true);
         }
+        if(!isAgeValid){
+          setShowAgeAlert(true);
+        }
+        if(isEmailValid){
+          setShowEmailAlert(true);
+        }
       }
       
   };
@@ -71,15 +94,29 @@ function Signin() {
 
   return (
     <>
+      {ShowEmailAlert && ( // Render the alert when showAlert is true
+        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <strong>Email Already Exist</strong> 
+        <button type="button" name="0" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+      </div>
+      )}
+      {ShowAgeAlert && ( // Render the alert when showAlert is true
+        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <strong>Age Should be greater than 18</strong> 
+        <button type="button" name="1" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+      </div>
+      )}
       {showpassAlert && ( // Render the alert when showAlert is true
-        <div className='alert alert-warning' role='alert'>
-          Password Doesnt Match
-        </div>
+        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <strong>Password Doesn't Match</strong> 
+        <button type="button" name="2" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+      </div>
       )}
       {showmobalert && ( // Render the alert when showAlert is true
-        <div className='alert alert-warning' role='alert'>
-          Please Enter an Correct Contact Number 
-        </div>
+        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <strong>Please Enter an Correct Contact Number</strong> 
+        <button type="button" name="3" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+      </div>
       )}
 
       <div className='container my-5'>
