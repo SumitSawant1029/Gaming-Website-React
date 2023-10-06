@@ -8,7 +8,7 @@ function Signin() {
   const [showmobalert, setshowmobalert] = useState(false);
   const [ShowAgeAlert, setShowAgeAlert] = useState(false);
   const [ShowEmailAlert, setShowEmailAlert] = useState(false);
-
+  const [showmobalert1, setshowmobalert1] = useState(false);
   const [credentials1, setcredentials1] = useState({
 
     firstname: "",
@@ -22,7 +22,16 @@ function Signin() {
   });
 
   const onClick1 = (e) => {
-    if (e.target.name === "1"){setShowAgeAlert(false);}else if(e.target.name === "2"){setShowpassAlert(false);} else if(e.target.name==="3"){setshowmobalert(false);}else if(e.target.name==="0"){setShowEmailAlert(false);} 
+    if (e.target.name === "1")
+    {setShowAgeAlert(false);}
+    else if(e.target.name === "2")
+    {setShowpassAlert(false);} 
+    else if(e.target.name==="3")
+    {setshowmobalert(false);}
+    else if(e.target.name==="0")
+    {setShowEmailAlert(false);}
+    else if(e.target.name==="4")
+    {setshowmobalert1(false);} 
   }
 
   const Signuphandler = async (e) => {
@@ -43,10 +52,24 @@ function Signin() {
             email: credentials1.email,
           }),
         });
+        const Response2 = await isEmailValid.json();
+        const isEmailValid1 = Response2.code;
+        console.log(isEmailValid1);
+        const isPhoneValid1 = await fetch('http://localhost:5000/api/auth/isPhoneTaken', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            mob: credentials1.mob,
+          }),
+        });
         
-    
+        const Response1 = await isPhoneValid1.json();
+        const isPhoneValid = Response1.code;
+      
         
-      if (isPasswordMatch && isMobileValid && isAgeValid && !isEmailValid.ok){
+      if (isPasswordMatch && isMobileValid && isAgeValid && isEmailValid1 && isPhoneValid){
         const response = await fetch('http://localhost:5000/api/auth/createuser', {
           method: 'POST',
           headers: {
@@ -79,8 +102,12 @@ function Signin() {
         if(!isAgeValid){
           setShowAgeAlert(true);
         }
-        if(isEmailValid){
+        if(!isEmailValid1){
           setShowEmailAlert(true);
+        }
+        if(!isPhoneValid){
+          setshowmobalert1(true);
+
         }
       }
       
@@ -95,27 +122,33 @@ function Signin() {
   return (
     <>
       {ShowEmailAlert && ( // Render the alert when showAlert is true
-        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <div className="alert alert-warning alert-dismissible fade show my-0" role="alert">
         <strong>Email Already Exist</strong> 
-        <button type="button" name="0" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+        <button type="button" name="0" className="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
       </div>
       )}
       {ShowAgeAlert && ( // Render the alert when showAlert is true
-        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <div className="alert alert-warning alert-dismissible fade show my-0" role="alert">
         <strong>Age Should be greater than 18</strong> 
-        <button type="button" name="1" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+        <button type="button" name="1" className="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
       </div>
       )}
       {showpassAlert && ( // Render the alert when showAlert is true
-        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <div className="alert alert-warning alert-dismissible fade show my-0" role="alert">
         <strong>Password Doesn't Match</strong> 
-        <button type="button" name="2" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+        <button type="button" name="2" className="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
       </div>
       )}
       {showmobalert && ( // Render the alert when showAlert is true
-        <div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <div className="alert alert-warning alert-dismissible fade show my-0" role="alert">
         <strong>Please Enter an Correct Contact Number</strong> 
-        <button type="button" name="3" class="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+        <button type="button" name="3" className="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
+      </div>
+      )}
+      {showmobalert1 && ( // Render the alert when showAlert is true
+        <div className="alert alert-warning alert-dismissible fade show my-0" role="alert">
+        <strong>Number Already Exist</strong> 
+        <button type="button" name="4" className="btn-close" data-bs-dismiss="alert" onClick={onClick1} aria-label="Close"></button>
       </div>
       )}
 

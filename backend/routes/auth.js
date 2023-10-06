@@ -121,16 +121,38 @@ router.post('/getuser', fetchuser,  async (req, res) => {
 router.post('/isEmailTaken',  async (req, res) => {
     try {
       const { email } = req.body;
+
   
       // Check if a user with the provided email exists in the database
       const user = await User.findOne({ email });
   
       if (user) {
         // If a user is found with the provided email, send a success response
-        return res.json({ message: 'User exists' ,code:'0'});
+        return res.json({ message: 'User exists' ,code:false});
       } else {
         // If no user is found with the provided email, send a failure response
-        return res.json({ message: 'User does not exist', code:'1' });
+        return res.json({ message: 'User does not exist', code:true });
+      }
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+
+  router.post('/isPhoneTaken',  async (req, res) => {
+    try {
+      const { mob } = req.body;
+
+  
+      // Check if a user with the provided email exists in the database
+      const user = await User.findOne({ mob });
+  
+      if (user) {
+        // If a user is found with the provided email, send a success response
+        return res.json({ message: 'Phone exists' ,code:false});
+      } else {
+        // If no user is found with the provided email, send a failure response
+        return res.json({ message: 'Phone does not exist', code:true });
       }
     } catch (error) {
       console.error(error.message);
