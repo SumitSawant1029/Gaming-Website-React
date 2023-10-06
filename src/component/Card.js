@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
 import Rating from '@mui/material/Rating';
-import { useStateValue } from './StateProvider';
 
 
 function Card({id,image, price, rating, title}) {

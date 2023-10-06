@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-
+import "./CSS/Signin.css"
 
 function Signin() {
   const navigate = useNavigate();
@@ -152,15 +152,15 @@ function Signin() {
       </div>
       )}
 
-      <div className='container my-5'>
-        <div className='d-flex justify-content-center'>
-          <form onSubmit={Signuphandler} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+  
+    <div >
+          <form onSubmit={Signuphandler} className='rounded p-4' style={{ backgroundColor: '#adb4bf', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)',position:"absolute" ,width:"49%",top:"12%",right:"26%"}}>
             
-          <h3 className='my-4'>Sign Up</h3>
+          <h3 className='my-4'><strong>SIGN UP</strong></h3>
   
           <div className="input-group my-3">
             <span className="input-group-text">First and last name</span>
-            <input name="firstname" type="text" onChange={onChange1} aria-label="First name" className="form-control" />
+            <input  name="firstname" type="text" onChange={onChange1} aria-label="First name" className="form-control" />
             <input name="lastname" type="text" onChange={onChange1} aria-label="Last name" className="form-control" />
           </div>
 
@@ -175,7 +175,7 @@ function Signin() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
+            <label htmlFor="phoneNumber" className="form-label"><strong>Phone Number</strong></label>
             <input type="tel" name="mob" onChange={onChange1} id="phoneNumber" className="form-control" placeholder="Enter your phone number" />
           </div>
 
@@ -187,13 +187,13 @@ function Signin() {
 
           <div className="input-group flex-nowrap my-3">
             <span className="input-group-text" id="addon-wrapping">@</span>
-            <input type="text" onChange={onChange1} name="email" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" />
+            <input type="text" onChange={onChange1} name="email" className="form-control" placeholder="Email" aria-label="Username" aria-describedby="addon-wrapping" />
           </div>
           <div className="mb-3">
             <label htmlFor="inputPassword5" className="form-label">Password</label>
             <input type="password" name="password" onChange={onChange1} id="inputPassword5" className="form-control" aria-describedby="passwordHelpBlock" />
             <div id="passwordHelpBlock" className="form-text">
-              Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+              Your password must be 8- 20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </div>
           </div>
           <div className="mb-3">
@@ -201,12 +201,12 @@ function Signin() {
             <input type="password" name="cpassword" onChange={onChange1} id="confirmPassword" className="form-control" />
           </div>
 
-          <button type="submit" onClick={Signuphandler} className="btn btn-primary">Sign Up</button>
-          <Link to="/Login" type="submit" className="btn btn-primary mx-3">Back</Link>
+          <button type="submit" style={{    width: "200px",position: "relative",left: "38%"}} onClick={Signuphandler} className="btn btn-primary">Sign Up</button>
+          <Link to="/Login" type="submit" style={{width:"80px",position:"absolute",left:"80%"}} className="btn btn-primary mx-3">Back</Link>
 
         </form>
-      </div>
-      </div>
+  </div>
+
     </>
 
   );

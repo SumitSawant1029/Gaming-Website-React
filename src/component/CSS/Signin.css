@@ -1,0 +1,21 @@
+
+.hello{
+    background-color: #6483A1;
+    background-size: cover; /* Optional: Scale the image to cover the container */
+    background-repeat: no-repeat; /* Optional: Prevent the image from repeating */
+  }
+
+  .background-image {
+    /* Set the background image to cover the entire container */
+    background-size: cover;
+    /* Center the background image both horizontally and vertically */
+    background-position: center center;
+    /* Add any additional styles you want for the container */
+    /* For example, you can set a background color or adjust padding/margin */
+    background-color: #adb4bf; /* Background color similar to your existing style */
+    /* Other styles (e.g., padding, margin, etc.) */
+    /* You can also specify the container's width and height */
+    /* width: 100%; */
+    /* height: 100vh; */
+  }
+  
