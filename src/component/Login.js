@@ -41,15 +41,16 @@ const Login = (props) => {
         </div>
       )}
       <div className='container my-5'>
-        <div className='d-flex justify-content-center'>
-          <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#adb4bf', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
-          <Link to='/' style={{textDecoration:"none"}}><strong> &lt; &lt; Back</strong></Link>
+      <Link to='/' style={{textDecoration:"none",fontSize:"20px"}}><strong> &lt; &lt; Back</strong></Link>
 
-            <div className='mb-3'>
-              <label htmlFor='email' className='form-label'>
+        <div className='d-flex justify-content-center'>
+          <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#adb4bf',height: "450px",width: "727px", boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+          
+            <div className='mb-3' style={{height:"127px"}}>
+              <label htmlFor='email' className='form-label' style={{fontSize:"22px"}}>
                 Email address
               </label>
-              <input
+              <input style={{height:"54px"}}
                 type='email'
                 className='form-control'
                 value={credentials.email}
@@ -63,10 +64,10 @@ const Login = (props) => {
               </div>
             </div>
             <div className='mb-3'>
-              <label htmlFor='password' className='form-label'>
+              <label htmlFor='password' className='form-label' style={{fontSize:"22px"}}>
                 Password
               </label>
-              <input
+              <input style={{height:"54px"}}
                 type='password'
                 className='form-control'
                 value={credentials.password}
@@ -76,12 +77,12 @@ const Login = (props) => {
               />
             </div>
 
-            <button type='submit' className='btn btn-primary' style={{position:"relative",left:"30%",width:"116px"}}>
+            <button type='submit' className='btn btn-primary' style={{position:"relative",left:"34%",width:"187px",fontSize:"22px",top:"22px"}}>
               Login
             </button>
             <br />
             <br></br>
-            Don't Have an Account?  <Link to='/Signup' style={{textDecoration:"none"}}>SignUp</Link>
+            <a style={{position:"relative",left:"29%",fontSize:"20px",top:"11px"}}>Don't Have an Account?  <Link to='/Signup' style={{textDecoration:"none"}}>SignUp</Link></a> 
             
           </form>
         </div>
