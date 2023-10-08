@@ -13,10 +13,10 @@ function Card({id,image, price, rating, title}) {
                 <img src={image} alt="" />
             </Image>
             <Description>
-                <h3  >{title}</h3>
+                <h3 >{title}</h3>
                 <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
                 <p>₹{price}</p>
-                <button>Add to Cart</button>
+                <button id={id}>Add to Cart</button>
             </Description>
            
         </Container> 

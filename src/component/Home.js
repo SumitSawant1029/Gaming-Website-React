@@ -1,77 +1,67 @@
-import React from 'react'
+
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import Card from "./Card";
 import Footer from './Footer';
-function Home() {
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
+
+
+
+
+function Home() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch data from your /allproduct route
+    axios.get('http://localhost:5000/api/product/allproduct')
+      .then((response) => {
+        // Set the products data in the state
+        setProducts(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  console.log(products);
 
   return (
-
     <>
-    <Navbar />
-    <div className='container my-3'>
-    <Container>
-      
-      <Banner>
-        <img src="./banner.jpg" alt="" />
-        <img src="mobile_banner.jpg" alt="" />       
-      </Banner>
+      <Navbar />
+      <div className="container my-3">
+        {/* Render the product cards */}
+        <Container>
+          <Banner>
+            <img src="./banner.jpg" alt="" />
+            <img src="mobile_banner.jpg" alt="" />
+          </Banner>
 
-      <Main>
-        <Card 
-            id = {1}
-            image={"https://m.media-amazon.com/images/I/41n-Mot8qkL._SX300_SY300_QL70_FMwebp_.jpg"}
-            price={2500}
-            rating={4}
-            title={"Kreo Hive Anti-ghosting Gaming"}
-        />
-        <Card 
-            id = {2}
-            image={"https://m.media-amazon.com/images/I/41vQryZrFgL._SX300_SY300_QL70_FMwebp_.jpg"}
-            price={2800}
-            rating={3}
-            title={"ONIKUMA K5 Wired Gaming Headset with Base Sound "}
-        />
-
-        <Card 
-            id = {3}
-            image={"https://m.media-amazon.com/images/I/61RiY9CcC2L._AC_UL320_.jpg"}
-            price={1600}
-            rating={3}
-            title={"Wired Gaming Mouse with Up to 6400 DPI"}
-        />
-
-        <Card 
-            id = {4}
-            image={"https://m.media-amazon.com/images/I/41qj6N+xqmL._SX342_SY445_.jpg"}
-            price={2500}
-            rating={4}
-            title={"Amkette EvoFox One Universal Bluetooth Gamepad"}
-        />
-
-        <Card 
-            id = {5} 
-            image={"https://m.media-amazon.com/images/I/71ILbCOwZAL._SX679_.jpg"}
-            price={2500}
-            rating={4}
-            title={"Ant Esports GS370SB Gaming Computer Speakers for PC"}
-        />
-
-        <Card 
-            id = {6}
-            image={"https://m.media-amazon.com/images/I/51Q4RPQpG4L._SX300_SY300_QL70_FMwebp_.jpg"}
-            price={2500}
-            rating={4}
-            title={"Qizlar Extended Gaming Mouse Pad (800mm x 300mm x 3mm)"}
-        />
-       
-      </Main>
-    </Container>
-    </div>
-    <Footer/>
+          <Main>
+            {products.map((product) => (
+              <Card
+                key={product.id}
+                id={product.id}
+                image={product.url}
+                price={product.price}
+                rating={product.rating}
+                title={product.name}
+              />
+            ))}
+          </Main>
+        </Container>
+      </div>
+      <Footer />
     </>
-  )
+  );
+
 }
 
 const Container = styled.div`

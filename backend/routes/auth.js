@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/User');
+const Product = require('../models/Product');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
@@ -117,7 +118,7 @@ router.post('/getuser', fetchuser,  async (req, res) => {
   }
 })
 
-
+// ROUTE 4: Check if Email is Taken: POST "/api/auth/isEmailTaken". Login required
 router.post('/isEmailTaken',  async (req, res) => {
     try {
       const { email } = req.body;
@@ -139,7 +140,9 @@ router.post('/isEmailTaken',  async (req, res) => {
     }
   });
 
-  router.post('/isPhoneTaken',  async (req, res) => {
+
+
+router.post('/isPhoneTaken',  async (req, res) => {
     try {
       const { mob } = req.body;
 
@@ -160,5 +163,6 @@ router.post('/isEmailTaken',  async (req, res) => {
     }
   });
   
+
 
 module.exports = router

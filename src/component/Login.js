@@ -42,8 +42,8 @@ const Login = (props) => {
       )}
       <div className='container my-5'>
         <div className='d-flex justify-content-center'>
-          <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#fff', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
-          <Link to='/'> &lt; &lt; Back</Link>
+          <form onSubmit={handleSubmit} className='rounded p-4' style={{ backgroundColor: '#adb4bf', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
+          <Link to='/' style={{textDecoration:"none"}}><strong> &lt; &lt; Back</strong></Link>
 
             <div className='mb-3'>
               <label htmlFor='email' className='form-label'>
@@ -76,11 +76,13 @@ const Login = (props) => {
               />
             </div>
 
-            <button type='submit' className='btn btn-primary'>
+            <button type='submit' className='btn btn-primary' style={{position:"relative",left:"30%",width:"116px"}}>
               Login
             </button>
             <br />
-            <Link to='/Signup'>SignUp</Link>
+            <br></br>
+            Don't Have an Account?  <Link to='/Signup' style={{textDecoration:"none"}}>SignUp</Link>
+            
           </form>
         </div>
       </div>
