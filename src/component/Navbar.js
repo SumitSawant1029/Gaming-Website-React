@@ -29,17 +29,6 @@ function Navbar(props) {
               <li className="nav-item">
                 <Link to="/ShopByCategory" className="nav-link text-white" >ShopByCategory</Link>
               </li>
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Offers
-                </Link>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" >Action</Link></li>
-                  <li><Link className="dropdown-item" >Another action</Link></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><Link className="dropdown-item" >Something else here</Link></li>
-                </ul>
-              </li>
 
             </ul>
             { !isAlertVisible &&(
