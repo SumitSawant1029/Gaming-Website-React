@@ -55,23 +55,23 @@ const Footer = () => {
                     <h5>Quick Links</h5>
                     <ul className="list-unstyled">
                         <li>
-                            <Link href="#!" className="text-white">Home</Link>
+                            <Link to="/" className="text-white">Home</Link>
                         </li>
                         <li>
-                            <Link href="#!" className="text-white">Shop</Link>
+                            <Link to="/" className="text-white">Shop</Link>
                         </li>
                         <li>
                             <Link to="/Aboutus" className="text-white">About</Link>
                         </li>
                         <li>
-                            <Link href="#!" className="text-white">Contact</Link>
+                            <Link to="/contactpage" className="text-white">Contact</Link>
                         </li>
                     </ul>
                 </section>
             </div>
 
             <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-                &copy; {new Date().getFullYear()} Your Gaming Store
+                &copy; {new Date().getFullYear()} Gaming Galaxy
             </div>
         </footer>
     );

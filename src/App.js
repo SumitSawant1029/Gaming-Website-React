@@ -11,7 +11,7 @@ import Mouse from './component/Category/Mouse';
 import Monitor from './component/Category/Monitor';
 import Cables from './component/Category/Cables';
 import Aboutus from './component/Aboutus';
-
+import ContactPage from './component/ContactPage';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           <Route path="/Monitor" element={<Monitor />} />
           <Route path="/Cables" element={<Cables />} />
           <Route path="/Aboutus" element={<Aboutus />} />
+          <Route path="/contactpage" element={<ContactPage />} />
         </Routes>
       </Container>
     </Router>
