@@ -32,8 +32,7 @@ function Accessories() {
     return (
       <>
         <Navbar />
-        <div className="container my-3">
-          {/* Render the product cards */}
+        <div className="container">
           <Container>
             <Banner>
               <img src="./banner.jpg" alt="" />

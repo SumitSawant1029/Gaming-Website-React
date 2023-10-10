@@ -25,6 +25,18 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
+
+  .sc-eDLKEg.hyiNCt {
+    width: 100%;
+    display: flex; /* Make the child images align horizontally */
+    overflow: hidden; /* Hide any overflow beyond the screen width */
+  }
+  
+  .sc-eDLKEg.hyiNCt img {
+    width: 100%;
+    height: auto; /* Maintain the image aspect ratio */
+  }
+  
   
   /* Add more CSS styles for your component as needed */
   
