@@ -32,41 +32,37 @@ function Accessories() {
     return (
       <>
         <Navbar />
-        <div className="container">
-          <Container>
-            <Banner>
-              <img src="./banner.jpg" alt="" />
-              <img src="mobile_banner.jpg" alt="" />
-            </Banner>
+        <Container>
+          <Banner>
+            <img src="./banner.jpg" alt="" />
+          </Banner>
+
+          <Main>
+            {products.map((product) => (
+              <Card
+                key={product.id}
+                id={product.id}
+                image={product.url}
+                price={product.price}
+                rating={product.rating}
+                title={product.name}
+              />
+            ))}
+          </Main>
+        </Container>
   
-            <Main>
-              {products.map((product) => (
-                <Card
-                  key={product.id}
-                  id={product.id}
-                  image={product.url}
-                  price={product.price}
-                  rating={product.rating}
-                  title={product.name}
-                />
-              ))}
-            </Main>
-          </Container>
-        </div>
-        <Footer />
-      </>
+      <Footer />
+    </>
     );
   
   }
   
   const Container = styled.div`
-    width: 100%;
-    background-color: rgb(234, 237, 237);
-    max-width: 1400px;
-    margin: auto;
-    height: fit-content;
-  `;
-  
+  width: 100%;
+  background-color: rgb(234, 237, 237);
+  margin: auto;
+  height: fit-content;
+`;
   
   const Banner = styled.div`
     width: 100%;

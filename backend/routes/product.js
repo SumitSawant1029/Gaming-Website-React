@@ -47,7 +47,7 @@ router.post('/createproduct', [
       description,
       price,
       category,
-      url, // Include the URL field
+      url, 
     });
 
     await product.save();

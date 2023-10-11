@@ -253,7 +253,7 @@ function Signin() {
             <label
               htmlFor="gender"
               className="form-label"
-              style={{ color: "#983643" }}
+              style={{ color: "#983643",fontSize: "22px" }}
             >
               Gender
             </label>
@@ -274,7 +274,7 @@ function Signin() {
             <label
               htmlFor="phoneNumber"
               className="form-label"
-              style={{ color: "#983643" }}
+              style={{ color: "#983643",fontSize: "22px" }}
             >
               <strong>Phone Number</strong>
             </label>
@@ -292,7 +292,7 @@ function Signin() {
             <label
               htmlFor="dateOfBirth"
               className="form-label"
-              style={{ color: "#983643" }}
+              style={{ color: "#983643",fontSize: "22px" }}
             >
               Date of Birth
             </label>
@@ -308,7 +308,7 @@ function Signin() {
           <label
             htmlFor="confirmPassword"
             className="form-label"
-            style={{ color: "#983643" }}
+            style={{ color: "#983643",fontSize: "22px" }}
           >
             Email
           </label>
@@ -331,7 +331,7 @@ function Signin() {
             <label
               htmlFor="inputPassword5"
               className="form-label"
-              style={{ color: "#983643" }}
+              style={{ color: "#983643",fontSize: "22px" }}
             >
               Password
             </label>
@@ -357,7 +357,7 @@ function Signin() {
             <label
               htmlFor="confirmPassword"
               className="form-label"
-              style={{ color: "#983643" }}
+              style={{ color: "#983643",fontSize: "22px" }}
             >
               Confirm Password
             </label>
