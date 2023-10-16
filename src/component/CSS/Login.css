@@ -1,6 +1,6 @@
 /* Login.css */
 .login-container {
-    background-image: url('https://img.freepik.com/free-psd/gamer-background-with-accessories_1419-2365.jpg?w=1380&t=st=1696938972~exp=1696939572~hmac=a61ceba43e0647695a319897c068bc910732b49b5cfd1b11e594329acb527b0c');
+    background-image: url('./Background.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -15,7 +15,7 @@ const ShopByCategory = (props) => {
         {
             title: "Cables",
             text: "Cables That Power Your Connectivity!",
-            imageUrl: "https://scontent.fpnq13-3.fna.fbcdn.net/v/t39.30808-6/383354338_2066992403636729_2627979952844574396_n.jpg?stp=dst-jpg_p526x296&_nc_cat=100&ccb=1-7&_nc_sid=49d041&_nc_ohc=BqrkGccEQ4cAX_oVF9b&_nc_ht=scontent.fpnq13-3.fna&oh=00_AfCBNbueOgfu8RtrGiOXidSa0PZDmksUfullqhxSbN8zkg&oe=651DB2B3",
+            imageUrl: "https://m.media-amazon.com/images/I/61qBNNEeBoL.__AC_SX300_SY300_QL70_FMwebp_.jpg",
         },
         {
             title: "Mouse",

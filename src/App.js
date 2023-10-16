@@ -12,7 +12,7 @@ import Monitor from './component/Category/Monitor';
 import Cables from './component/Category/Cables';
 import Aboutus from './component/Aboutus';
 import ContactPage from './component/ContactPage';
-
+import AddtoCart from './component/AddtoCart'
 function App() {
   return (
     <Router>
@@ -28,6 +28,7 @@ function App() {
           <Route path="/Cables" element={<Cables />} />
           <Route path="/Aboutus" element={<Aboutus />} />
           <Route path="/contactpage" element={<ContactPage />} />
+          <Route path="/addtocart" element={<AddtoCart />} />
         </Routes>
       </Container>
     </Router>

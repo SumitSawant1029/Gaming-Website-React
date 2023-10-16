@@ -87,7 +87,7 @@ function Aboutus() {
           <div class="column my-1" style={{ flex: "1", height: "200px" }}>
             <div class="card">
               <img
-                src="/w3images/team3.jpg"
+                src="/Team4.jpg"
                 alt="Ilyas"
                 style={{ width: "100%", height: "500px" }}
               />

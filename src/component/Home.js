@@ -82,19 +82,6 @@ const Banner = styled.div`
     rgba(0, 0, 0, 0)
     );
 
-    &:nth-child(2) {
-      display: none;
-    }
-
-    @media only screen and (max-width: 767px) {
-      &:nth-child(1) {
-        display: none;
-      }
-
-      &:nth-child(2) {
-        display: block;
-        -webkit-mask-image: none;
-      }
     }
   }
 `;

@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { navigate } from 'react-router-dom';
+
 import "./CSS/Login.css";
+import Navbar from "./Navbar";
+
+const MyContext = React.createContext();
+
 const Login = (props) => {
+  
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [showAlert, setShowAlert] = useState(false);
@@ -19,10 +26,9 @@ const Login = (props) => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    const authtoken = json.authtoken;
     if (json.success === true) {
-      // Redirect to the home page
-      navigate("/", { state: { showSuccess: true } });
+      navigate("/", { state: { showSuccess: true , authtoken:authtoken} });
     } else {
       setShowAlert(true);
     }
@@ -66,7 +72,7 @@ const Login = (props) => {
               position: "absolute",
               top: "11%",
               right: "7%",
-              height: "45%",
+              height: "50%",
               width: "727px",
               boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
             }}
