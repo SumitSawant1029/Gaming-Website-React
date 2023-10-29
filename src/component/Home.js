@@ -6,10 +6,6 @@ import Footer from './Footer';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
-
-
-
 function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,6 +17,7 @@ function Home() {
         // Set the products data in the state
         setProducts(response.data);
         setLoading(false);
+        console.log(products);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -39,12 +36,11 @@ function Home() {
           <Banner>
             <img src="./banner.jpg" alt="" />
           </Banner>
-
           <Main>
             {products.map((product) => (
               <Card
-                key={product.id}
-                id={product.id}
+                key={product._id}
+                id={product._id}
                 image={product.url}
                 price={product.price}
                 rating={product.rating}

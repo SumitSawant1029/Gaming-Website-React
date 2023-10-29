@@ -12,7 +12,9 @@ import Monitor from './component/Category/Monitor';
 import Cables from './component/Category/Cables';
 import Aboutus from './component/Aboutus';
 import ContactPage from './component/ContactPage';
-import AddtoCart from './component/AddtoCart'
+import AddtoCart from './component/AddtoCart';
+import ProductPage from './component/ProductPage';
+
 function App() {
   return (
     <Router>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/Aboutus" element={<Aboutus />} />
           <Route path="/contactpage" element={<ContactPage />} />
           <Route path="/addtocart" element={<AddtoCart />} />
+          <Route path="/productspage/:id" element={<ProductPage />} />
         </Routes>
       </Container>
     </Router>

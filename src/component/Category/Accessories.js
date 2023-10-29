@@ -41,7 +41,7 @@ function Accessories() {
             {products.map((product) => (
               <Card
                 key={product.id}
-                id={product.id}
+                id={product._id}
                 image={product.url}
                 price={product.price}
                 rating={product.rating}

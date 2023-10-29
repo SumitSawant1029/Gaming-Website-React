@@ -6,12 +6,12 @@ const { body, validationResult } = require('express-validator');
 const fetchuser = require('../middleware/fetchuser');
 
 // GET product details by ID
-router.get('/productdetails/:id', async (req, res) => { // Include :id in the route path
+router.post('/productdetails', async (req, res) => {
   try {
-    const productId = req.params.id;
+    const { id } = req.body;
 
     // Find the product by ID
-    const product = await Product.findById(productId);
+    const product = await Product.findById(id);
 
     // Check if the product exists
     if (!product) {
@@ -94,6 +94,27 @@ router.get('/allproduct', async (req, res) => {
 
     // Respond with the list of products in JSON format
     res.json(products);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+router.get('/product/:id', async (req, res) => {
+  try {
+    const productId = req.params.id;
+
+    // Find the product by ID in the collection
+    const product = await Product.findById(productId);
+
+    // Check if the product exists
+    if (!product) {
+      return res.status(404).json({ error: 'Product not found' });
+    }
+
+    // Respond with the product in JSON format
+    res.json(product);
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Internal Server Error');

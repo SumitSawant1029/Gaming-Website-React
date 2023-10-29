@@ -1,26 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react';
 import styled from "styled-components";
-import Rating from '@mui/material/Rating';
+import { Link, useNavigate } from 'react-router-dom';
 
+function Card(props) {
+  const navigate = useNavigate();
 
-function Card({id,image, price, rating, title}) {
-  
- 
-
-    return (
-        <Container>
-            <Image >
-                <img src={image} alt="" />
-            </Image>
-            <Description>
-                <h3 >{title}</h3>
-                <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
-                <p>₹{price}</p>
-                <button id={id}>Add to Cart</button>
-            </Description>
-           
-        </Container> 
-    )
+  return (
+    <Container>
+      <Image>
+        <Link to={`/productspage/${props.id}`}>
+        <img id={props.id} src={props.image} alt="" />
+        </Link>
+      </Image>
+      <Description>
+        <h3>{props.title}</h3>
+        <p>₹{props.price}</p>
+        <button  id={props.id} >Add to Cart</button>
+      </Description>
+    </Container>
+  )
 }
 
 const Container = styled.div`

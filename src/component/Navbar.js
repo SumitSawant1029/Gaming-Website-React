@@ -21,9 +21,7 @@ function Navbar(props) {
 
 
   useEffect(() => {
-    console.log("hello");
-    console.log(authtoken);
-    if (authtoken!==null && name1 === '') {
+    if (authtoken) {
       setAccount(true);
       const fetchData = async () => {
         try {
@@ -55,7 +53,7 @@ function Navbar(props) {
     }
   }, [authtoken]);
   return (
-    <>
+    <div style={{position:"fixed",width:"100%", zIndex: 999 }}>
       {Account && (
         <div className='alert alert-success my-0' role='alert'>
           Sign up completed successfully! 
@@ -101,7 +99,7 @@ function Navbar(props) {
             {Account && (
               <div class="dropdown">
               <button className='mx-2' onClick={()=>{
-                navigate("/addtocart");
+                navigate("/addtocart", { state: { firstname: name1 } });
               }} style={{width:"45px",backgroundColor:"#28242c",border:"0"}}>
                 <img style={{width :"100%",height:"100%"}} src="Cart.png" alt=".."/>
               </button>
@@ -114,7 +112,12 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-    </>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+    </div>
+    
   );
 }
 

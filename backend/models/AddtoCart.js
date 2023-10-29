@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const CartItemSchema = new Schema({
   product: {
     type: Schema.Types.ObjectId,
-    ref: 'Product', // Reference to the Product model
+    ref: 'Product', 
     required: true
   },
   quantity: {
@@ -14,6 +14,10 @@ const CartItemSchema = new Schema({
   addedAt: {
     type: Date,
     default: Date.now
+  },
+  firstname: {
+    type: String,
+    required: true
   }
 });
 
