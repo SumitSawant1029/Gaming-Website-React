@@ -9,7 +9,7 @@ function Card(props) {
     <Container>
       <Image>
         <Link to={`/productspage/${props.id}`}>
-        <img id={props.id} src={props.image} alt="" />
+        <img  id={props.id} src={props.image} alt="" />
         </Link>
       </Image>
       <Description>

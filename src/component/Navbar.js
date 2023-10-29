@@ -87,6 +87,10 @@ function Navbar(props) {
                 </Link>
               </li>
             </ul>
+            <Link to="/cart">
+
+            <button type="button"  className="btn btn-outline-info mx-3">Cart</button>
+            </Link>
             {!Account && (
               <form className="d-flex" role="search">
                 <Link to="/Login">
@@ -112,10 +116,6 @@ function Navbar(props) {
           </div>
         </div>
       </nav>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </div>
     
   );

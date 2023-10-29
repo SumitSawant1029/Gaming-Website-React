@@ -14,6 +14,7 @@ import Aboutus from './component/Aboutus';
 import ContactPage from './component/ContactPage';
 import AddtoCart from './component/AddtoCart';
 import ProductPage from './component/ProductPage';
+import CartDetails from './component/CartDetails';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/contactpage" element={<ContactPage />} />
           <Route path="/addtocart" element={<AddtoCart />} />
           <Route path="/productspage/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartDetails />} />
         </Routes>
       </Container>
     </Router>
